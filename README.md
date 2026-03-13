@@ -9,7 +9,7 @@
 
 A fast, minimal colour palette generator built for designers. Generate, explore and export beautiful palettes with zero friction.
 
-**[Live Demo](https://joemighty.github.io/paletto/)**
+**[Live Demo](https://joemighty.github.io/Palette/)**
 
 ---
 
