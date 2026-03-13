@@ -1,4 +1,11 @@
-# Paletto
+# Pal.ette
+
+![GitHub Pages](https://img.shields.io/badge/deployed-GitHub%20Pages-222?style=flat-square&logo=github)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![No Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-ff3d2e?style=flat-square)
 
 A fast, minimal colour palette generator built for designers. Generate, explore and export beautiful palettes with zero friction.
 
@@ -18,37 +25,47 @@ A fast, minimal colour palette generator built for designers. Generate, explore 
 
 ## Export Formats
 
-HEX, RGB, CSS custom properties, Tailwind config, SVG, PNG image, PDF (print), ASE (Adobe), JavaScript
+| Format | Output |
+|--------|--------|
+| HEX | Plain text list of hex values |
+| RGB | `rgb()` values |
+| CSS | Custom properties in `:root` |
+| Tailwind | `tailwind-colors.js` config object |
+| SVG | Colour block SVG file |
+| Image | PNG canvas export |
+| PDF | Print-ready layout |
+| ASE | Adobe-compatible hex list |
+| Code | JavaScript array |
 
 ## Project Structure
 
 ```
 paletto/
   index.html
+  README.md
   assets/
     css/
       style.css
     js/
-      utils.js      - colour math, shared helpers
-      data.js       - palette datasets
-      generator.js  - generator logic and export
-      explore.js    - explore page rendering and filtering
-      app.js        - routing, keyboard shortcuts, init
+      utils.js        colour math, shared helpers, toast, modals
+      data.js         showcase and explore palette datasets
+      generator.js    generator logic, drag/drop, export
+      explore.js      explore grid, search, tag filtering
+      app.js          routing, keyboard shortcuts, init
 ```
 
 ## Deploy to GitHub Pages
 
 1. Push the repo to GitHub
-2. Go to Settings > Pages
+2. Go to **Settings > Pages**
 3. Set source to `main` branch, root folder
-4. Your site will be live at `https://<username>.github.io/<repo>/`
+4. Live at `https://<username>.github.io/<repo>/`
 
-No build step required. Pure HTML, CSS, and vanilla JS.
+No build step. Pure HTML, CSS, and vanilla JS.
 
 ## Local Development
 
 ```bash
-# Any static server works, e.g.:
 npx serve .
 # or
 python3 -m http.server 8080
