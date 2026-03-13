@@ -1,6 +1,6 @@
 <div align="center">
 
-# Pal.ette
+# Pal•ette
 
 ![GitHub Pages](https://img.shields.io/badge/deployed-GitHub%20Pages-222?style=flat-square&logo=github)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
