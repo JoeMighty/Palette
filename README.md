@@ -54,25 +54,6 @@ paletto/
       app.js          routing, keyboard shortcuts, init
 ```
 
-## Deploy to GitHub Pages
-
-1. Push the repo to GitHub
-2. Go to **Settings > Pages**
-3. Set source to `main` branch, root folder
-4. Live at `https://<username>.github.io/<repo>/`
-
-No build step. Pure HTML, CSS, and vanilla JS.
-
-## Local Development
-
-```bash
-npx serve .
-# or
-python3 -m http.server 8080
-```
-
-Open `http://localhost:8080`.
-
 ---
 
 Built by [Jobin Bennykutty](https://github.com/JoeMighty/)
