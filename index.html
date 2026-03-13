@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Paletto - Generate, explore and export beautiful colour palettes instantly.">
+  <title>Paletto - Colour Palette Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-logo" onclick="showPage('home')">Pal<span>.</span>ette</div>
+    <div class="nav-links">
+      <button class="nav-link active" data-page="home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" data-page="generator" onclick="showPage('generator')">Generator</button>
+      <button class="nav-link" data-page="explore" onclick="showPage('explore')">Explore</button>
+    </div>
+    <button class="nav-cta" onclick="showPage('generator')">Start Creating</button>
+  </nav>
+
+  <div id="home" class="page active">
+
+    <section class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-content">
+        <div class="hero-tag">The colour tool for creatives</div>
+        <h1 class="hero-title">Beautiful<br><em>palettes,</em><br>instantly.</h1>
+        <p class="hero-sub">Generate, explore, and export colour palettes for your next project. Hit spacebar and watch it happen.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('generator')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,3 19,12 5,21"/></svg>
+            Start the Generator
+          </button>
+          <button class="btn-secondary" onclick="showPage('explore')">Explore Palettes</button>
+        </div>
+        <div class="hero-hint">Press <kbd>Space</kbd> in the generator to shuffle</div>
+      </div>
+    </section>
+
+    <div class="stats-strip">
+      <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Curated Palettes</span></div>
+      <div class="stat"><span class="stat-num">9</span><span class="stat-label">Export Formats</span></div>
+      <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Always</span></div>
+      <div class="stat"><span class="stat-num">WCAG</span><span class="stat-label">Contrast Checker</span></div>
+    </div>
+
+    <section class="section-steps">
+      <div class="section-inner">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">Three steps to your perfect palette.</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <h3>Generate</h3>
+              <p>Hit spacebar or click Generate to instantly create a 5-colour palette. Locked colours stay put while the rest shuffle.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <h3>Refine</h3>
+              <p>Lock colours you love, remove ones you don't, drag to reorder, and check accessibility with WCAG contrast scores.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <h3>Export</h3>
+              <p>Download your palette as HEX, RGB, CSS variables, Tailwind config, SVG, PNG, PDF, ASE, or JavaScript code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-exports">
+      <div class="section-inner">
+        <div class="section-label">Export formats</div>
+        <h2 class="section-title">Every format your workflow needs.</h2>
+        <div class="export-tags">
+          <span class="export-tag hi">HEX</span>
+          <span class="export-tag hi">CSS Variables</span>
+          <span class="export-tag hi">Tailwind</span>
+          <span class="export-tag">RGB</span>
+          <span class="export-tag">SVG</span>
+          <span class="export-tag">PNG Image</span>
+          <span class="export-tag">PDF</span>
+          <span class="export-tag">ASE (Adobe)</span>
+          <span class="export-tag">JS Code</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-cta">
+      <div class="cta-bg" id="ctaBg"></div>
+      <div class="cta-content">
+        <h2>Your next palette is<br>one keystroke away.</h2>
+        <p>No sign-up. No friction. Just colours.</p>
+        <button class="btn-primary" onclick="showPage('generator')">Open the Generator</button>
+        <div class="hero-hint" style="margin-top:16px"><kbd>Space</kbd> to generate instantly</div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      Built by <a href="https://github.com/JoeMighty/" target="_blank" rel="noopener">Jobin Bennykutty</a>
+    </footer>
+
+  </div>
+
+  <div id="explore" class="page">
+
+    <div class="explore-header">
+      <div>
+        <h1 class="explore-title">Trending Palettes</h1>
+        <p class="explore-sub">Get inspired by curated colour schemes.</p>
+      </div>
+      <div class="search-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Search palettes..." oninput="filterPalettes()">
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active" onclick="setFilter(this,'all')">All</button>
+      <button class="filter-chip" onclick="setFilter(this,'warm')">Warm</button>
+      <button class="filter-chip" onclick="setFilter(this,'cool')">Cool</button>
+      <button class="filter-chip" onclick="setFilter(this,'earthy')">Earthy</button>
+      <button class="filter-chip" onclick="setFilter(this,'pastel')">Pastel</button>
+      <button class="filter-chip" onclick="setFilter(this,'dark')">Dark</button>
+      <button class="filter-chip" onclick="setFilter(this,'neon')">Neon</button>
+      <button class="filter-chip" onclick="setFilter(this,'monochrome')">Monochrome</button>
+    </div>
+
+    <div class="palettes-grid" id="palettesGrid"></div>
+
+  </div>
+
+  <div id="generator" class="page gen-page">
+
+    <div class="gen-bar">
+      <div class="gen-hint"><kbd>Space</kbd> to generate &nbsp;|&nbsp; <kbd>Esc</kbd> close modal</div>
+      <div class="gen-actions">
+        <button class="gbtn" onclick="genPalette()">&#8635; Generate</button>
+        <button class="gbtn primary" onclick="openModal('exportModal')">Export</button>
+      </div>
+    </div>
+
+    <div class="palette-wrap">
+      <div class="palette" id="palette"></div>
+      <button class="add-col-btn" onclick="addCol()" title="Add colour">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal">
+      <div class="modal-title">Export Palette</div>
+      <div class="export-grid" id="exportGrid">
+        <div class="export-opt selected" data-fmt="hex">HEX</div>
+        <div class="export-opt" data-fmt="rgb">RGB</div>
+        <div class="export-opt" data-fmt="css">CSS</div>
+        <div class="export-opt" data-fmt="tailwind">Tailwind</div>
+        <div class="export-opt" data-fmt="svg">SVG</div>
+        <div class="export-opt" data-fmt="code">Code</div>
+        <div class="export-opt" data-fmt="pdf">PDF</div>
+        <div class="export-opt" data-fmt="img">Image</div>
+        <div class="export-opt" data-fmt="ase">ASE</div>
+      </div>
+      <div class="modal-footer">
+        <button class="gbtn" onclick="closeModal('exportModal')">Cancel</button>
+        <button class="gbtn primary" onclick="doExport()">Download</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="shadesModal">
+    <div class="modal">
+      <div class="modal-title">Shades</div>
+      <div class="shades-row" id="shadesRow"></div>
+      <div class="modal-footer">
+        <button class="gbtn primary" onclick="closeModal('shadesModal')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="contrastModal">
+    <div class="modal">
+      <div class="modal-title">Contrast Checker</div>
+      <div class="contrast-pair" id="contrastPair"></div>
+      <div class="contrast-score" id="contrastScore"></div>
+      <div class="ratings-row" id="ratingsRow"></div>
+      <div class="modal-footer">
+        <button class="gbtn primary" onclick="closeModal('contrastModal')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="infoModal">
+    <div class="modal">
+      <div class="modal-title">Colour Info</div>
+      <div class="info-swatch" id="infoSwatch"></div>
+      <div class="info-cells" id="infoCells"></div>
+      <div class="modal-footer">
+        <button class="gbtn primary" onclick="closeModal('infoModal')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/generator.js"></script>
+  <script src="assets/js/explore.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>
