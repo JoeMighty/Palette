@@ -1,3 +1,5 @@
+<div align="center">
+
 # Pal.ette
 
 ![GitHub Pages](https://img.shields.io/badge/deployed-GitHub%20Pages-222?style=flat-square&logo=github)
@@ -10,6 +12,8 @@
 A fast, minimal colour palette generator built for designers. Generate, explore and export beautiful palettes with zero friction.
 
 **[Live Demo](https://joemighty.github.io/Palette/)**
+
+</div>
 
 ---
 
